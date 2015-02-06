@@ -1,0 +1,35 @@
+<h1>Listing congestions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>To</th>
+      <th>Longitude</th>
+      <th>Latitude</th>
+      <th>Time</th>
+      <th>Level</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @congestions.each do |congestion| %>
+      <tr>
+        <td><%= congestion.from %></td>
+        <td><%= congestion.to %></td>
+        <td><%= congestion.longitude %></td>
+        <td><%= congestion.latitude %></td>
+        <td><%= congestion.time %></td>
+        <td><%= congestion.level %></td>
+        <td><%= link_to 'Show', congestion %></td>
+        <td><%= link_to 'Edit', edit_congestion_path(congestion) %></td>
+        <td><%= link_to 'Destroy', congestion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Congestion', new_congestion_path %>

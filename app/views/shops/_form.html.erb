@@ -1,0 +1,99 @@
+  <script type="text/javascript">
+    var map;
+    function initialize() {
+      var initialLocation = new google.maps.LatLng(0.713956,-74.006653);
+
+      var myOptions = {
+        zoom: 16,
+        center: new google.maps.LatLng(5.640255598266568, -0.1534544032440408),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      map = new google.maps.Map(document.getElementById("map_canvas"), myOptions); 
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+          var image = 'http://i.stack.imgur.com/KOh5X.png';
+          // lat: 5.626952036677332 Lon: -0.1719187301025613
+          // lat: 5.650185024106325 Lon: -0.17320619042970975
+          // lat: 5.65308908208049 Lon: -0.14041886743166287
+          // lat: 5.620631136673252 Lon: -0.13355241235353787
+
+          <%(1..13).each do |i|%>
+          // Generate random lat and lng points
+          <% lat = rand * (5.70-5.59) + 5.59 %>
+          <% lng = rand * (0.18-0.1) + 0.1 %>
+          console.log("lat: <%=lat%> lng: <%=lng%>");
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(<%=lat%>, <%=-lng%>),
+            map: map,
+            icon: "http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-9d7050/shapecolor-white/shadow-1/border-color/symbolstyle-color/symbolshadowstyle-no/gradient-no/repair.png",
+            title: "Current Location"
+          });
+          <%end%>
+          var marker1 = new google.maps.Marker({
+            position: initialLocation,
+            map: map,
+            title: "Current Location"
+          });
+          var marker2 = new google.maps.Marker({
+            draggable: true,
+            position: initialLocation, 
+            map: map,
+            title: "Your location"
+          });
+          google.maps.event.addListener(marker2, 'dragend', function (event) {
+            document.getElementById("shop_latitude").value = this.getPosition().lat();
+            document.getElementById("shop_longitude").value = this.getPosition().lng();
+            console.log("lat: " + this.getPosition().lat() + " Lon: " + this.getPosition().lng());
+          });
+          map.setCenter(initialLocation);
+        });
+}
+
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<%= form_for(@shop) do |f| %>
+<% if @shop.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+
+  <ul>
+    <% @shop.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="field">
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+ <%= f.label :description %><br>
+ <%= f.text_field :description %>
+</div>
+<div class="field">
+ <%= f.label :tel %><br>
+ <%= f.text_field :tel %>
+</div>
+<div class="field">
+  <%= f.label :latitude %><br>
+  <%= f.text_field :latitude %>
+</div>
+<div class="field">
+  <%= f.label :longitude %><br>
+  <%= f.text_field :longitude %>
+</div>
+<div class="field">
+ <div id="map_canvas" style="width: 800px; height: 500px"></div>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>

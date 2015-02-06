@@ -1,0 +1,153 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,800italic,400,300,600,700,800|Oswald:400,300,700);
+@import 'foundation/components/global';
+@import 'foundation/components/grid';
+@import 'foundation/components/reveal';
+$font-family1: 'Open Sans', sans-serif;
+$font-family2: 'Oswald', sans-serif;
+
+body, html{
+	font-family: $font-family1;
+	padding: 0px;
+	margin: 0px;
+	font-size: 13px;
+	font-weight: 100;
+}
+
+.clear{
+	clear: both;
+}
+
+.adp-legal {
+	color: #676767;
+	display: none;
+	visibility: hidden;
+}
+#head{
+	background-image: url("wallpaper5.jpg");
+	background-size: cover;
+	color: #FFF;
+	padding: 15px 0px;
+}
+div.mainpage{
+	font-size: 28px;
+	font-family: $font-family2;
+	text-align: center;
+
+	input[type='text'] {
+		margin: 0px;
+		font-size: 28px;
+		/*width: 100px;*/
+		font-weight: 100;
+		padding: 0px;
+		border: 0px;
+		text-decoration: underline;
+		font-family: $font-family2;
+		text-align: center;
+		background-color: transparent;
+	}
+}
+
+.reveal-modal{
+	width: 98%;
+	max-width: none;
+}
+
+.reveal-modal-bg {
+	background: rgba(210, 210, 210, 0.75);
+}
+
+.custom-modal{
+	background-color: #FFF;
+	border-radius: 0px;
+	box-shadow: none;
+	border: none;
+	top: 10px;
+
+	.in{
+		background-color: #FFF;
+	}
+}
+
+table{
+	&.travel-points{
+		display: block;
+		tbody {
+			width: 100%;
+			display: inline-block;
+		}
+		tr{
+			padding: 7px 12px;
+			border-bottom: 1px solid #999;
+			display: block;
+		}
+	}
+
+}
+
+.congestion{
+	min-height: 100%;
+	background-color: #E4F4F4;
+	padding: 48px 0px;
+
+	.title {
+		font-size: 40px;
+		font-weight: 100;
+		text-align: center;
+		font-family: $font-family2;
+		margin-bottom: 28px;
+	}
+
+	.congestion_chart{
+		display: block;
+		width: (100%/3);
+		float: left;
+		.chart{
+			display:block;
+		}
+		.holder{
+			padding: 9px;
+		}
+	}
+}
+
+.about{
+	padding: 50px;
+	background-color: #EEEAEA;
+	.title{
+		font-size: 47px;
+		text-align: center;
+		display: block;
+		padding: 8px;
+	}
+
+	.content{
+		margin: 10px 0px;
+
+		div.holder{
+			width: (100%/3);
+			float: left;
+			color: #888;
+			text-align: center;
+
+			.inner{
+				background-color: #FFF;
+				margin: 0px 6px;
+				padding: 26px 13px;
+				font-size: 22px;
+				line-height: 1.3em;
+			}	
+		}
+	}
+}
+
+footer{
+	background-color: #000;
+	color: #FFF;
+	padding: 12px;
+	font-size: 18px;
+	text-align: center;
+}

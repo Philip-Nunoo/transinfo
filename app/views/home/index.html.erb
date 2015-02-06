@@ -1,0 +1,177 @@
+<script type="text/javascript">
+	var map;
+	function initialize() {
+		var initialLocation = new google.maps.LatLng(0.713956,-74.006653);
+		var rendererOptions = {
+			draggable: true
+		};
+		directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);;
+		directionsService = new google.maps.DirectionsService();
+
+		var myOptions = {
+			zoom: 16,
+			center: new google.maps.LatLng(5.640255598266568, -0.1534544032440408),
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		}
+		map = new google.maps.Map(document.getElementById("map-canvas"), myOptions); 
+
+		directionsDisplay.setMap(map);
+		directionsDisplay.setPanel(document.getElementById('directionsPanel'));
+		// Plot the shops coordinates
+		<% Shop.all.each_with_index do |s, i| %>
+		var marker_<%=i%> = new google.maps.Marker({
+			position: new google.maps.LatLng(<%=s.latitude%>, <%=s.longitude%>),
+			map: map,
+			icon: "http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-9d7050/shapecolor-white/shadow-1/border-color/symbolstyle-color/symbolshadowstyle-no/gradient-no/repair.png",
+			title: "Current Location"
+		});
+		var infoWindowContent_<%=i%> = '<div class="info_content">' +
+		'<h3><%=s.name%></h3>' +
+		"<p><%=s.description%>" +
+		'</div>';
+
+
+		google.maps.event.addListener(marker_<%=i%>, 'click', function() {
+			new google.maps.InfoWindow({
+				content: infoWindowContent_<%=i%>
+			}).open(map, marker_<%=i%>);
+		});
+		<%end%>
+		// Check for navigator.geolocation
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (position) {
+				initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+				var image = 'http://i.stack.imgur.com/KOh5X.png';
+				
+				var marker1 = new google.maps.Marker({
+					position: initialLocation, 
+					map: map,
+					title: "Your location"
+				});
+
+				var marker2 = new google.maps.Marker({
+					draggable: true,
+					position: initialLocation, 
+					map: map,
+					title: "Your location"
+				});
+				console.log();
+				google.maps.event.addListener(marker2, 'dragend', function (event) {
+					console.log("lat: " + this.getPosition().lat() + " Lon: " + this.getPosition().lng());
+					var from = initialLocation;
+					var to = new google.maps.LatLng(this.getPosition().lat(), this.getPosition().lng());
+					// " to:" + tailMarker.getPoint().lat() + "," + 
+					// tailMarker.getPoint().lng(), 
+					calcRoute(directionsService, directionsDisplay, from, to);
+				});
+				map.setCenter(initialLocation);
+			});
+		}
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<div id="head">
+	<div class="large-10 large-centered columns mainpage">
+		<div style="margin: 6px 0px;">
+			Using <input type='text' placeholder='my current location'/> and tell me how to get to <input type='text' placeholder='select destination'/>
+			<%=link_to "now", locations_path, {remote: true}%>
+		</div>
+		<div class="large-8 columns" style="background-color: #FFF;">
+			<div id="map-canvas" style="width: 100%; height: 425px; margin: 20px 0px;"></div>
+		</div>
+		<div class="large-4 columns" style="background-color: #FFF;">
+			<div id="directionsPanel" style="width:100%;"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function () {
+		$('div[id^="congestion_chart_"]').each(function(i) {
+			$(function () {
+				new Highcharts.Chart({
+					chart: { renderTo: 'congestion_chart_'+i, type: 'areaspline' },
+					title: { text: 'Congestion chart From Accra to Circle' },
+					xAxis: { type: 'per hour' },
+					yAxis: {
+						title: { text: 'rate' }
+					},
+					series: [{
+						pointInterval: <%= 1.hour * 1000 %>,
+						pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
+						data: [1, 2, 5, 7, 3]
+					}]
+				});
+			});
+		});
+	})	
+</script>
+<div class="about">
+	<div class="large-9 large-centered columns">
+		<div class='title'>About thrupass</div>
+		<div class="content">
+			<div class="holder">
+				<div class="inner">
+					Thrupass enable you to accurately determine to correct path to your
+					destination avoiding traffic jams.
+				</div>
+			</div>
+			<div class="holder">
+				<div class="inner">
+					We get data by crowdsourcing traffic reports from our users and
+					provide a daily best view of the traffic situation.
+				</div>
+			</div>
+			<div class="holder">
+				<div class="inner">
+					With our route recalculating algorithm we enable you redirect
+					your route path for your convenience.
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<div class="congestion">
+	<div class="large-11 large-centered columns">
+		<div class="title">Congestion Charts</div>
+		<% (1..6).each_with_index do |s, i| %>
+		<div class="congestion_chart">
+			<div class="holder">
+				<div id="congestion_chart_<%=i%>" class='chart'></div>
+			</div>
+		</div>
+		<% end%>
+		<div class="clear"></div>
+	</div>
+</div>
+<div class="team">
+	<div class="large-9 large-centered columns">
+		<div class="title">The builders</div>
+		<div class="member">
+			<img src="">
+			<div class="desc"></div>
+			<div class="social">
+				
+			</div>
+		</div>
+		<div class="member">
+			<img src="">
+			<div class="desc">
+				
+			</div>
+			<div class="social">
+				
+			</div>
+		</div>
+		<div class="member">
+			<img src="">
+			<div class="desc">
+				
+			</div>
+			<div class="social">
+				
+			</div>
+		</div>
+	</div>
+</div>

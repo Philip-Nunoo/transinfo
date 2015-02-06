@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hack1</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuHqlOAxSA0QCWpRkeAeIF5THw9JP3bOI">
+</script>
+<script type="text/javascript">
+  // function initialize() {
+  //   var mapOptions = {
+  //     center: { lat: -34.397, lng: 150.644},
+  //     zoom: 8
+  //   };
+  //   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(function (position) {
+  //       initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  //       var image = 'http://i.stack.imgur.com/KOh5X.png';
+  //       var marker = new google.maps.Marker({
+  //         position: initialLocation,
+  //         map: map,
+  //         title: "Current Location"
+  //       });  
+  //       marker.setMap(map);
+  //       map.setCenter(initialLocation);
+  //     });
+  //   }
+
+  //   var directionsService = new google.maps.DirectionsService();
+  //   var directionsDisplay = new google.maps.DirectionsRenderer();
+  // }
+  // google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="row">
+  <div class="logo">
+    <%=image_tag "logo.png"%>
+    <!-- <img src="http://www.highcharts.com/templates/highsoft_bootstrap/assets/images/logo.svg"> -->
+  </div>
+  </div>
+
+  <%= yield %>
+  <footer>
+    &copy; 2015
+  </footer>
+</body>
+</html>
