@@ -137,77 +137,79 @@
 <div class="congestion">
 	<div class="large-11 large-centered columns">
 		<div class="title">Congestion Charts</div>
+		<div style="text-align: center;">
+		<%= button_to("View Crowd sourced Data", :dashboard_line_view, class: 'button', :method => :get) %> 
+		<%= button_to("View Cellular Data", :telco, class: 'button', :method => :get) %>
+		</div>
 		<div>
-			<button>View Crowdsource Data</button> 
-			<button>View Cellular Data</button>
-			</div>
-			<% (1..2).each_with_index do |s, i| %>
-			<div class="congestion_chart">
-				<div class="holder">
-					<div id="congestion_chart_<%=i%>" class='chart'></div>
-				</div>
-			</div>
-			<% end%>
-			<div class="clear"></div>
 		</div>
+		<% (1..2).each_with_index do |s, i| %>
+		<div class="congestion_chart">
+			<div class="holder">
+				<div id="congestion_chart_<%=i%>" class='chart'></div>
+			</div>
+		</div>
+		<% end%>
+		<div class="clear"></div>
 	</div>
-	<div class="" id="about">
-		<div class="large-9 large-centered columns">
-			<div class="info">
-				With our knowledge and market research we've found
-				out that there lies a huge problem concerning traffic
-				situation in major cities. With this knowledge we wish
-				to better get data from areas in other to well predict
-				future traffic situation and give better alternate routes.
-				<%=link_to 'View how?', :home_details, remote: true%>
-				<div class="alert">
-					We intend to aggregate data through better crowd-sourcing methods 
-					and better still through all cellular phones.
-				</div>
+</div>
+<div class="" id="about">
+	<div class="large-9 large-centered columns">
+		<div class="info">
+			With our knowledge and market research we've found
+			out that there lies a huge problem concerning traffic
+			situation in major cities. With this knowledge we wish
+			to better get data from areas in other to well predict
+			future traffic situation and give better alternate routes.
+			<%=link_to 'View how?', :home_details, remote: true%>
+			<div class="alert">
+				We intend to aggregate data through better crowd-sourcing methods 
+				and better still through all cellular phones.
 			</div>
 		</div>
 	</div>
-	<div class="team" id="team">
-		<div class="large-8 large-centered columns">
-			<div class="title">
-				Meet The Team Behind Removing Traffic on Our Roads. 
-				<div>
-					And finding a better routing solution.
+</div>
+<div class="team" id="team">
+	<div class="large-8 large-centered columns">
+		<div class="title">
+			Meet The Team Behind Removing Traffic on Our Roads. 
+			<div>
+				And finding a better routing solution.
+			</div>
+		</div>
+		<div class="member">
+			<div class="holder">
+				<%=image_tag "img1.jpg"%>
+				<div class="name">Panin Osei Tenkorang</div>
+				<div class="desc">Team Lead</div>
+				<div class="social">
+
 				</div>
 			</div>
-			<div class="member">
-				<div class="holder">
-					<%=image_tag "img1.jpg"%>
-					<div class="name">Panin Osei Tenkorang</div>
-					<div class="desc">Team Lead</div>
-					<div class="social">
+		</div>
+		<div class="member">	
+			<div class="holder">		
+				<%=image_tag "img2.jpg"%>
+				<div class="name">Philip Nunoo</div>
+				<div class="desc">Lead Developer</div>
+				<div class="social">
 
-					</div>
 				</div>
 			</div>
-			<div class="member">	
-				<div class="holder">		
-					<%=image_tag "img2.jpg"%>
-					<div class="name">Philip Nunoo</div>
-					<div class="desc">Lead Developer</div>
-					<div class="social">
+		</div>
+		<div class="member">
+			<div class="holder">
+				<%=image_tag "img3.jpg"%>
+				<div class="name">Afi Ohui Kwao</div>
+				<div class="desc">Product and Marketing Lead</div>
+				<div class="social">
 
-					</div>
 				</div>
-			</div>
-			<div class="member">
-				<div class="holder">
-					<%=image_tag "img3.jpg"%>
-					<div class="name">Afi Ohui Kwao</div>
-					<div class="desc">Product and Marketing Lead</div>
-					<div class="social">
-
-					</div>
-				</div>
-
-				<div class="clear"></div>
 			</div>
 
 			<div class="clear"></div>
-		</div>	
-	</div>
+		</div>
+
+		<div class="clear"></div>
+	</div>	
+</div>

@@ -57,12 +57,12 @@ div.mainpage{
 
 	button{
 		font-size: 22px;
-margin: 0px;
-background-color: transparent;
-color: #4374E0;
-font-weight: 100;
-border: solid 1px;
-padding: 1px 12px;
+		margin: 0px;
+		background-color: transparent;
+		color: #4374E0;
+		font-weight: 100;
+		border: solid 1px;
+		padding: 1px 12px;
 	}
 }
 
@@ -245,11 +245,16 @@ nav{
 	}
 }
 
-button {
+button, .button {
 	background-color: #4374E0;
 	color: #FFF;
 	border: none;
 	padding: 12px 24px;
+	margin-bottom: 3px;
+
+	&:hover{
+		cursor: pointer;
+	}
 }
 footer{
 	background-color: #000;

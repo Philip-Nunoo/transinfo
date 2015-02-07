@@ -1,7 +1,6 @@
 class DashboardController < ApplicationController
 	def line_view
 		@congestions = Congestion.all
-
 	end
 
 	def map_view
@@ -15,4 +14,8 @@ class DashboardController < ApplicationController
 			@to = params[:to_loc]
 		end
 	end
+
+	def tel_data
+	end
+	
 end

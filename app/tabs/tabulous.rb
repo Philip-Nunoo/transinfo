@@ -26,6 +26,14 @@ Tabulous.setup do
       active_when   { in_action('path').of_controller('dashboard') }
     end
 
+    tel_data_tab do
+      text          { "Tel Data <span class='tab-info'>concept</span>" }
+      link_path     { telco_path }
+      visible_when  { true }
+      enabled_when  { true }
+      active_when   { in_action('tel_data').of_controller('dashboard') }
+    end
+    
     # shops_tab do
     #   text          { 'Shops' }
     #   link_path     { shops_path }
