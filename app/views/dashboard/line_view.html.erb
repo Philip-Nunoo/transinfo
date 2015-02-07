@@ -1,0 +1,29 @@
+<h1>Dashboard#line_view</h1>
+<p>Find me in app/views/dashboard/line_view.html.erb</p>
+<div class="large-4 columns">
+	Region
+	<ul>
+		<li>Greater Accra</li>
+	</ul>
+</div>
+<div class="large-8 columns">
+	<table class="line_view" cellspacing="0">
+		<thead>
+			<tr>
+				<th>Place Name</th>
+				<th>In bound</th>
+				<th>Out bound</th>
+				<th>View on map</th>
+			</tr>
+		</thead>
+		<%for c in @congestions %>
+		<tr>
+			<th><%=c.place%></th>
+			<td><span class="level <%= level c.in_level%>"><%= translate_level c.in_level%></span></td>
+			<td><span class="level <%= level c.out_level%>"><%= translate_level c.out_level%></span></td>
+			<td>map_view</td>
+		</tr>
+		<%end%>
+	</table>
+</div>
+<div class="clear"></div>

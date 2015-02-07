@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 20150206030036) do
 
   create_table "congestions", force: true do |t|
-    t.string   "from"
-    t.string   "to"
+    t.string   "place"
     t.float    "longitude"
     t.float    "latitude"
     t.string   "time"
-    t.float    "level"
+    t.float    "out_level"
+    t.float    "in_level"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

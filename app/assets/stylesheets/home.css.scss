@@ -103,7 +103,7 @@ table{
 
 	.congestion_chart{
 		display: block;
-		width: (100%/3);
+		width: (100%/1);
 		float: left;
 		.chart{
 			display:block;
@@ -144,6 +144,98 @@ table{
 	}
 }
 
+.team{
+	padding: 60px 0px;
+	background-color: #f9f9fa;
+
+	.title{
+		text-align: center;
+		font-size: 28px;
+		padding: 8px 0px;
+	}
+
+	.holder{
+		padding: 0px 12px;
+	}
+
+	.member{
+		float: left;
+		width: (100%/3);
+		text-align: center;
+
+		img{
+			display: block;
+			width: 170px;
+			margin: auto;
+			border-radius: 50%;
+			height: 170px;
+			filter: blur(0px) grayscale(89%);
+			-webkit-filter: blur(0px) grayscale(89%);
+			transition: filter 0.7s ease-out;
+			-webkit-transition: -webkit-filter 0.7s ease-out;
+
+			&:hover{
+				cursor: pointer;
+				filter: blur(0) grayscale(0);
+				-webkit-filter: blur(0) grayscale(0);
+			}
+		}
+
+		.name{
+			font-weight: 400;
+			font-size: 20px;
+			font-family: $font-family2;
+		}
+		.desc{
+			font-size: 13px;
+		}
+	}
+}
+
+.info {
+	margin: 50px auto;
+	width: 70%;
+	text-align: justify;
+	font-size: 18px;
+	border: solid 1px #888;
+	padding: 22px 20px;
+
+	.alert{
+		text-align: center;
+		font-family: 'Oswald', sans-serif;
+		font-size: 29px;
+		border-top: dotted 2px #999;
+		margin-top: 22px;
+		color: #D00;
+	}
+}
+
+nav{
+	display: inline-block;
+
+	a{
+		display: inline-block;
+		text-decoration: none;
+		font-size: 20px;
+		padding: 20px 40px;
+		margin: 0px;
+		color: #666;
+		font-family: $font-family2;
+		transition: all 1s ease-out;
+		-webkit-transition: all 1s ease-out;
+
+		&:hover{
+			background-color: rgba(200,200,200,0.5);
+		}
+	}
+}
+
+button {
+	background-color: #4374E0;
+	color: #FFF;
+	border: none;
+	padding: 12px 24px;
+}
 footer{
 	background-color: #000;
 	color: #FFF;

@@ -29,15 +29,7 @@ gem 'haml'
 gem 'geocoder'
 gem 'foundation-rails', '5.4.5'
 gem 'pry'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'tabulous'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
+gem 'better_errors'
 # gem 'debugger', group: [:development, :test]
-

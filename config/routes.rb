@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'dashboard/line_view'
+  get 'dashboard/map_view'
+  
   resources :congestions
 
   resources :locations
@@ -6,6 +9,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'home/index'
+  get 'home/details'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

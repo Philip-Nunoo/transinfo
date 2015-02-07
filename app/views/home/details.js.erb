@@ -1,0 +1,4 @@
+// details.js.erb
+var string = "<div data-reveal class='reveal-modal custom-modal'><%= escape_javascript(render 'details')%><a class='close-reveal-modal'>&#215;</a></div>";
+
+$(string).foundation().foundation('reveal', 'open');
