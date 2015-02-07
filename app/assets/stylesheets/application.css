@@ -11,6 +11,8 @@
  * file per style scope.
  *
  * require_tree .
+ *= require animate
+ *= require wow
  *= require home
  *= require dashboard
  *= require_self
