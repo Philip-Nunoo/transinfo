@@ -54,7 +54,7 @@ namespace :new_random do
 		start_time = DateTime.now
 		TelData.destroy_all
 
-		(1..100).each do |s|
+		(1..1000).each do |s|
 			# Generate random lat and lng points
 			lat = rand * (5.70-5.59) + 5.59
 			lng = rand * (0.18-0.1) + 0.1

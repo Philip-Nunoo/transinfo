@@ -17,6 +17,17 @@
 
 		directionsDisplay.setMap(map);
 		directionsDisplay.setPanel(document.getElementById('directionsPanel'));
+		<%if !@datas.blank? %>
+		<% @datas.each_with_index do |s, i| %>
+		var marker_<%=i%> = new google.maps.Marker({
+			position: new google.maps.LatLng(<%=s.latitude%>, <%=s.longitude%>),
+			map: map,
+			icon: "http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-265cb2/shapecolor-color/shadow-1/border-dark/symbolstyle-white/symbolshadowstyle-dark/gradient-no/lighthouse-2.png",
+			title: "Current Location"
+		});
+		<%end%>
+		<%end%>
+
 		// Plot the shops coordinates
 		<% Shop.all.each_with_index do |s, i| %>
 		var marker_<%=i%> = new google.maps.Marker({

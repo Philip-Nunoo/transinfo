@@ -22,6 +22,6 @@ class ApiController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def congestion_params
-    	params.require(:congestion).permit(:place, :longitude, :latitude, :out_level, :in_level)
+    	params.permit(:place, :longitude, :latitude, :out_level, :in_level)
     end
 end
