@@ -12,7 +12,7 @@ gem 'tabulous'
 gem 'foundation-rails', '5.4.5'
 gem 'haml'
 gem 'geocoder'
-
+gem 'google_places'
 group :development, :test do
 	gem 'sqlite3'
 	gem 'pry'

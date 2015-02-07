@@ -1,1 +1,7 @@
-tel_data.html.erb
+<div>
+	<%for t in @datas %>
+	<div>
+	<%= t.longitude %> || <%= t.latitude %>
+	</div>
+	<%end%>
+</div>

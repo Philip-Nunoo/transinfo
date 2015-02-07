@@ -48,4 +48,18 @@ namespace :new_random do
 		end
 		puts "Built tasksk in #{((DateTime.now - start_time) * 24 * 60 * 60).to_i} seconds. Date: #{start_time.to_date}. "
   	end
+
+  	desc "Generate random tel_data"
+	task telData: :environment do
+		start_time = DateTime.now
+		TelData.destroy_all
+
+		(1..100).each do |s|
+			# Generate random lat and lng points
+			lat = rand * (5.70-5.59) + 5.59
+			lng = rand * (0.18-0.1) + 0.1
+			TelData.create longitude: -lng, latitude: lat          		
+      	end
+		puts "Built task in #{((DateTime.now - start_time) * 24 * 60 * 60).to_i} seconds. Date: #{start_time.to_date}. "
+	end
 end
