@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'dashboard/line_view'
   get 'dashboard/map_view'
+  get 'dashboard/path', as: :search_location
   
   resources :congestions
 

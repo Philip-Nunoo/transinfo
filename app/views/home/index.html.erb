@@ -73,8 +73,10 @@
 <div id="head">
 	<div class="large-10 large-centered columns mainpage">
 		<div style="margin: 6px 0px;">
-			Using <input type='text' placeholder='my current location'/> and tell me how to get to <input type='text' placeholder='select destination'/>
-			<%=link_to "now", :dashboard_line_view%>
+			<%= form_tag(search_location_path, method: :get) do %>
+			Using <%=text_field_tag :current_loc, "", {placeholder: 'my current location'}%> and tell me how to get to <%=text_field_tag :to_loc, "", {placeholder: 'select destination'}%>
+			<button type="submit">now</button>
+			<%end%>
 		</div>
 		<div class="large-8 columns" style="background-color: #FFF;">
 			<div id="map-canvas" style="width: 100%; height: 425px; margin: 20px 0px;"></div>

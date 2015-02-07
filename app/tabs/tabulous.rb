@@ -18,6 +18,14 @@ Tabulous.setup do
       active_when   { in_action('map_view').of_controller('dashboard') }
     end
 
+    path_tab do
+      text          { 'Search Path' }
+      link_path     { search_location_path }
+      visible_when  { true }
+      enabled_when  { true }
+      active_when   { in_action('path').of_controller('dashboard') }
+    end
+
     # shops_tab do
     #   text          { 'Shops' }
     #   link_path     { shops_path }
