@@ -4,8 +4,10 @@
   <title>Hack1</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuHqlOAxSA0QCWpRkeAeIF5THw9JP3bOI">
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/?key=AIzaSyDuHqlOAxSA0QCWpRkeAeIF5THw9JP3bOI">
+</script>
+<script>
+ new WOW().init();
 </script>
 <script type="text/javascript">
   // function initialize() {
@@ -38,18 +40,18 @@
 </head>
 <body>
   <div class="row">
-  <div class="logo">
-    <%=image_tag "logo.png", style: "width: 80px; height: 60px;"%> 
-    <nav>
-      <a href="/"><span class="title">Transinfo</span></a>
-      <a href="#about">About</a>
-      <a href="#team">Team</a>
-    </nav>
-    <nav class="right" style="text-decoration: italic;">
-    <a >Soon on <%=image_tag "google_play.png", style: "height: 25px" %></a>
-    </nav>
-    <!-- <img src="http://www.highcharts.com/templates/highsoft_bootstrap/assets/images/logo.svg"> -->
-  </div>
+    <div class="logo">
+      <%=image_tag "logo.png", style: "width: 80px; height: 60px;"%> 
+      <nav>
+        <a href="/"><span class="title">Transinfo</span></a>
+        <a href="#about">About</a>
+        <a href="#team">Team</a>
+      </nav>
+      <nav class="right" style="text-decoration: italic;">
+        <a >Soon on <%=image_tag "google_play.png", style: "height: 25px" %></a>
+      </nav>
+      <!-- <img src="http://www.highcharts.com/templates/highsoft_bootstrap/assets/images/logo.svg"> -->
+    </div>
   </div>
 
   <%= yield %>

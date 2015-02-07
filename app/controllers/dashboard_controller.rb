@@ -7,7 +7,7 @@ class DashboardController < ApplicationController
 	end
 
 	def path
-		@client = GooglePlaces::Client.new("AIzaSyDuHqlOAxSA0QCWpRkeAeIF5THw9JP3bOI")
+		# @client = GooglePlaces::Client.new("AIzaSyDuHqlOAxSA0QCWpRkeAeIF5THw9JP3bOI")
 		if params[:current_loc]
 			@from = params[:current_loc]
 		end

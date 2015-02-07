@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require foundation
 //= require highcharts
+//= require wow.min
 
 // Reveal added
 $(function() {
