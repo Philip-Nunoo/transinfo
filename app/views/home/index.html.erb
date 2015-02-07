@@ -72,7 +72,7 @@
 </script>
 <div id="head">
 	<div class="large-10 large-centered columns mainpage">
-		<div style="margin: 6px 0px;">
+		<div style="margin: 6px 0px; text-shadow: 1px 1px #000;">
 			<%= form_tag(search_location_path, method: :get) do %>
 			Using <%=text_field_tag :current_loc, "", {placeholder: 'my current location'}%> and tell me how to get to <%=text_field_tag :to_loc, "", {placeholder: 'select destination'}%>
 			<button type="submit">now</button>
