@@ -16,6 +16,7 @@ class DashboardController < ApplicationController
 	end
 
 	def tel_data
+		@datas = TelData.all
 	end
 	
 end

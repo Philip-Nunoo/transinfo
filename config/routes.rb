@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   get 'home/index'
   get 'home/details'
+
+  # api
+  post 'api/v1/create/data' => 'api#create'
   
   resources :congestions
   resources :locations

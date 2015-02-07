@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206030036) do
+ActiveRecord::Schema.define(version: 20150207060149) do
 
   create_table "congestions", force: true do |t|
     t.string   "place"
@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(version: 20150206030036) do
     t.string   "tel"
     t.float    "latitude"
     t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tel_data", force: true do |t|
+    t.string   "longitude"
+    t.string   "latitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
