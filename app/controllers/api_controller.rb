@@ -4,8 +4,14 @@ class ApiController < ApplicationController
   # protect_from_forgery with: :exception
 
   def create
-  	Congestion.create place: place[:name], longitude: place[:lon], 
-  	latitude: place[:lat], out_level: 1, in_level: 2
+  	@congestion = Congestion.new congestion_params
+  	respond_to do |format|
+      if @congestion.save
+        format.json { render :show, status: :created, location: @congestion }
+      else
+        format.json { render json: @congestion.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private

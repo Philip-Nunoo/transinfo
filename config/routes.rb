@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   # api
   post 'api/v1/create/data' => 'api#create'
-  
+  get 'api/v1/create/data' => 'api#create'
   resources :congestions
   resources :locations
   resources :shops
